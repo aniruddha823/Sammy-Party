@@ -1,14 +1,14 @@
 //
-//  AddPartyViewController.swift
+//  ContactUsViewController.swift
 //  Login
 //
-//  Created by Paramjot Bhatia on 4/25/18.
+//  Created by Paramjot Bhatia on 4/26/18.
 //  Copyright © 2018 CMPE 137. All rights reserved.
 //
 
 import UIKit
 
-class AddPartyViewController: UIViewController {
+class ContactUsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             // User is signed in
             print("signed in")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let rootVC = storyboard.instantiateViewController(withIdentifier: "SecondViewController")
+            let rootVC = storyboard.instantiateViewController(withIdentifier: "TabBarController")
             self.window!.rootViewController = rootVC
            
             

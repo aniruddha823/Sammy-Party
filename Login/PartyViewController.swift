@@ -9,7 +9,7 @@
 import UIKit
 
 
-class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class PartyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
    
     @IBOutlet weak var PastCells: UITableView!
     
