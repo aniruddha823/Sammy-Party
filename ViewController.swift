@@ -15,15 +15,16 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet var nextButton: UIButton!
     
     
-    @IBOutlet weak var logo: UIImageView!
+//    @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var button: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-     //   GIDSignIn.sharedInstance().signInSilently()
+        GIDSignIn.sharedInstance().signInSilently()
         //logo.image = UIImage(named: "Unknown.png")
         button.setTitle("", for: .normal)
         
-        GIDSignIn.sharedInstance().signOut()
+  //      GIDSignIn.sharedInstance().signOut()
+        GIDSignIn.sharedInstance().uiDelegate = self
         self.nextButton.isHidden = true
         
         
@@ -51,8 +52,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         else{
             print("signed in")
             self.nextButton.isHidden = false
-    //        self.performSegue(withIdentifier: "toHomeScreen", sender: self)
-            
+       //     self.performSegue(withIdentifier: "toHomeScreen", sender: self)
             
         }
     }

@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        
+//        let database = Database.database().reference()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         return true
@@ -47,9 +49,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             }
             // User is signed in
             print("signed in")
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let rootVC = storyboard.instantiateViewController(withIdentifier: "SecondViewController")
-//            self.window!.rootViewController = rootVC
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let rootVC = storyboard.instantiateViewController(withIdentifier: "TabBarController")
+            self.window!.rootViewController = rootVC
            
             
         }
