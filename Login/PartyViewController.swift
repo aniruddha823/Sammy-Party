@@ -25,14 +25,19 @@ class PartyViewController: UIViewController, UITableViewDataSource, UITableViewD
         
     }
     
+    // This is the action for the button used to show all available
+    // parties on a map.
     @IBAction func showParties(_ sender: Any) {
         performSegue(withIdentifier: "showAllParties", sender: self)
     }
     
+    // Function with switch cases for various segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         switch segue.identifier {
         case "showAllParties"?:
             var mapVC = segue.destination as! MapViewController
+            
+            // Passes the party array to the map view's controller
             mapVC.parties = partyArray
             
         case "webSegue"?:

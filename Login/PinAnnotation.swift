@@ -1,5 +1,7 @@
 import MapKit
 
+// This class is used to help generate the pin & annotation
+// to add to a MapKit view
 class PinAnnotation : NSObject, MKAnnotation{
     var title : String?
     var subtitle : String?

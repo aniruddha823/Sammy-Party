@@ -11,6 +11,8 @@ import MapKit
 
 class MapViewController: UIViewController {
     
+    // This is the array array of parties to
+    // be processed for the map
     var parties : [Party] = [Party]()
     
     override func viewDidLoad() {
@@ -29,12 +31,21 @@ class MapViewController: UIViewController {
     }
     
     func getPartyLocations(){
+        
+        // This sets the initial region in which to look for
+        // the locations of parties
         var region = MKCoordinateRegion()
         region.center = CLLocationCoordinate2D(latitude: 37.335689, longitude: -121.881570)
         
+        // This loop grabs each party from the array,
+        // searches for a location based on the ones
+        // users provided, and generates a pin
+        // to add to the map view.
         for loc in parties {
             var str = loc.partyLocation
             
+            // The location search generates a variety of map
+            // items, but we only want the first item as a result
             let request = MKLocalSearchRequest()
             request.naturalLanguageQuery = str
             request.region = region
@@ -47,6 +58,8 @@ class MapViewController: UIViewController {
                 }
                 
                 var pinloc = response.mapItems[0].placemark.coordinate
+                
+                // Generates the pin for the map
                 let pin = PinAnnotation(title: loc.partyName, subtitle: loc.partyOrganizer, coordinate: pinloc)
                 
                 self.mapView.addAnnotation(pin)
@@ -58,15 +71,4 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    // 37.332759, -121.879700
 }
