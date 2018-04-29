@@ -11,8 +11,9 @@ import UIKit
 class ChangeProfilePictureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, GIDSignInDelegate {
    
     
-
+    //Upload Button
     @IBOutlet weak var uploadImageButton: UIButton!
+    //UIimage view of a profile picture
     @IBOutlet weak var profilePic: UIImageView!
     
     override func viewDidLoad() {
@@ -20,15 +21,17 @@ class ChangeProfilePictureViewController: UIViewController, UIImagePickerControl
         
         GIDSignIn.sharedInstance().delegate = self
         
-        
+        //URL of potential image
         let profilePicURL = GIDSignIn.sharedInstance().currentUser.profile.imageURL(withDimension: 175)
-        
+        //IF image exists
         if(profilePicURL != nil)
         {
+            //set that image as the profile pic
             self.profilePic.image = UIImage(data: NSData(contentsOf: profilePicURL!)! as Data)
         }
             
         else{
+            //else use defualt picture
             print("No image")
         }
     }
@@ -38,6 +41,7 @@ class ChangeProfilePictureViewController: UIViewController, UIImagePickerControl
         
         
     }
+    
     @IBAction func UploadImageButton(_ sender: Any) {
         let picker = UIImagePickerController()
         picker.delegate = self
