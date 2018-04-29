@@ -12,14 +12,17 @@ import WebKit
 class WebViewController: UIViewController {
 
     @IBOutlet weak var webView: WKWebView!
+    
+    var str: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = URL(string: "https://www.google.com")
+        let url = URL(string: "https://www.\(str)")
         let request = URLRequest(url: url!)
         webView.load(request)
+        print(url!)
         }
-    
 
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
