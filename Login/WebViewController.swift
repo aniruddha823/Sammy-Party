@@ -24,7 +24,18 @@ class WebViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
-  
+            else if(str.contains("http") || str.contains("www") || str.contains("https")){
+                let alert = UIAlertController(title: "Alert", message: "Invalid URL Format: \(str)" , preferredStyle: UIAlertControllerStyle.alert)
+                
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+                
+            else
+            {
+                str = "https://www." + str
+            }
+            
         }
         
         //Loading the webpage request
