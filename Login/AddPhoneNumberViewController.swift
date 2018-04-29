@@ -10,8 +10,10 @@ import UIKit
 import Firebase
 
 class AddPhoneNumberViewController: UIViewController {
-
+    
+    //Phone number Field
     @IBOutlet weak var phoneNumberField: UITextField!
+    //Phone number button
     @IBOutlet weak var phoneNumberButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +27,11 @@ class AddPhoneNumberViewController: UIViewController {
     }
     
     @IBAction func savePhoneNumber(_ sender: Any) {
+        //Instance in the Db
         let partyDB = Database.database().reference().child("Users")
-        
+        //Create a feature of attribute of Phonenumber for Users
         let partyDictionary = ["PhoneNumber": phoneNumberField.text!, ]
-        
+        //add phone number to Db
         partyDB.childByAutoId().setValue(partyDictionary){
             
             (error, ref) in
