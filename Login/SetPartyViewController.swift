@@ -11,15 +11,17 @@ import Firebase
 //Class used to create an event
 class SetPartyViewController: UIViewController, UITextFieldDelegate {
     
-    
-    @IBOutlet var website: UITextField!
+    // logs out the user from app and gmail
     @IBAction func logOut(_ sender: Any) {
         GIDSignIn.sharedInstance().signOut()
     }
     
     
     
-    @IBOutlet var hide: UIButton!
+    @IBOutlet var hide: UIButton!  // hidden button used for segue to main screen after logout
+    
+    // required IBOutlet variables for user input
+      @IBOutlet var website: UITextField!
     @IBOutlet var partyNameTextField: UITextField!
     
     @IBOutlet var dateAndTimeTextField: UITextField!
@@ -31,9 +33,7 @@ class SetPartyViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        hide.isHidden = true
+        hide.isHidden = true  // hides the hide button
         // Do any additional setup after loading the view.
     }
     
@@ -44,54 +44,62 @@ class SetPartyViewController: UIViewController, UITextFieldDelegate {
     }
     
     //Use picker view to enter a date
-    
     @IBAction func dateAction(_ sender: UITextField) {
         
-        
+        // setting up the pickerview programatically
         let datePickerView  : UIDatePicker = UIDatePicker()
         datePickerView.datePickerMode = UIDatePickerMode.dateAndTime
         sender.inputView = datePickerView
         datePickerView.minimumDate = datePickerView.date
+        
+        // using the selector method handleDataPicker to add pickerview target
         datePickerView.addTarget(self, action: #selector(handleDatePicker(sender:)), for: .valueChanged)
     }
     
-    
+    // this is objective c selector method which is used above to format date and time
     @objc func handleDatePicker(sender: UIDatePicker) {
         let timeFormatter = DateFormatter()
-        //     timeFormatter.dateFormat = "dd/MM/yyyy"
         timeFormatter.dateStyle = .medium
         timeFormatter.timeStyle = .short
+        // format the date and time
         dateAndTimeTextField.text = timeFormatter.string(from: sender.date)
-        //    dateInput = timeFormatter.string(from: sender.date)
+       
     }
     
     
-    //User touch
+    // User touch method to shut down keyboard when user presses outside
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
     
     
-    //Save button functionality
+    //Save button functionality to save user entered data to the Database
     @IBAction func saveButton(_ sender: Any) {
         
+        // checks if party name is blank
         if(partyNameTextField.text == ""){
             
+            // shows an alert message to the user
             let alert = UIAlertController(title: "Alert", message: "Party name can't be blank ", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
             
+             // checks if location field is blank
         else if (locationTextField.text == ""){
             
+             // shows an alert message to the user
             let alert = UIAlertController(title: "Alert", message: "Location can't be blank ", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
             
+            // checks of organizer field is blank
         else if(organizerTextField.text == ""){
             
+            
+             // shows an alert message to the user
             let alert = UIAlertController(title: "Alert", message: "Organizer name can't be blank", preferredStyle: UIAlertControllerStyle.alert)
             
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -100,8 +108,10 @@ class SetPartyViewController: UIViewController, UITextFieldDelegate {
             
         }
             
-            //    else if(((website.text!.contains("N/A"))) || website.text!.contains(""))  {
+           // checks if website name is blank
         else if(website.text!.contains("")) {
+            
+             // shows an alert message to the user
             let alert = UIAlertController(title: "Alert", message: "Website name can't be blank", preferredStyle: UIAlertControllerStyle.alert)
             
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -124,26 +134,19 @@ class SetPartyViewController: UIViewController, UITextFieldDelegate {
              }
              */
             
+
             
-            //            return
-            //        }
-            //       else if(((website.text!.contains("N/A")))){
-            //            return
-            //        }
-            //
-            ////
-            //            let alert = UIAlertController(title: "Alert", message: "Invalid URL. Please try again", preferredStyle: UIAlertControllerStyle.alert)
-            //
-            //            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            //            self.present(alert, animated: true, completion: nil) }
-            
-            
+            // the else statement is executed after checking errors in input
         else{
             
+            // creating a Database called Party
             let partyDB = Database.database().reference().child("Party")
             
+            // storing everything based on userinput to a partyDictionary
             let partyDictionary = ["Sender": Auth.auth().currentUser?.displayName, "PartyName": partyNameTextField.text!, "PartyDate": dateAndTimeTextField.text!, "PartyLocation": locationTextField.text!, "PartyOrganizer": organizerTextField.text!,"Website": website.text!]
             
+            // this method prints error if parties are not stored in database and
+            // prints "Parties Saved" if everything goes well
             partyDB.childByAutoId().setValue(partyDictionary){
                 
                 (error, ref) in
@@ -158,7 +161,7 @@ class SetPartyViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
-        
+        // segues user back to the party screen after storing information in the Database
         performSegue(withIdentifier: "backToPartyView", sender: self)
     }
     /*
