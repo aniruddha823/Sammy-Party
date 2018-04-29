@@ -18,10 +18,29 @@ class PartyViewController: UIViewController, UITableViewDataSource, UITableViewD
     var partyArray : [Party] = [Party]()
     var myIndex = 0
     var webStr: String = ""
+    
     @IBAction func logOutAction(_ sender: Any) {
         GIDSignIn.sharedInstance().signOut()
         performSegue(withIdentifier: "logOutSegue", sender: self)
         
+    }
+    
+    @IBAction func showParties(_ sender: Any) {
+        performSegue(withIdentifier: "showAllParties", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        switch segue.identifier {
+        case "showAllParties"?:
+            var mapVC = segue.destination as! MapViewController
+            mapVC.parties = partyArray
+            
+        case "webSegue"?:
+            let webView = segue.destination as! WebViewController
+            webView.str = webStr
+            
+        default: break
+        }
     }
     
     override func viewDidLoad() {
@@ -50,9 +69,6 @@ class PartyViewController: UIViewController, UITableViewDataSource, UITableViewD
         return partyArray.count
     }
     
-   
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //        let cell = PastCells.dequeueReusableCell(withIdentifier: "cell")
         //        cell?.textLabel?.text = list[indexPath.section].belong[indexPath.row]
@@ -70,15 +86,6 @@ class PartyViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.website.text = "\(partyArray[indexPath.row].website)"
        
         return cell
-    }
-    
- 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "webSegue"){
-            let webView = segue.destination as! WebViewController
-            
-            webView.str = webStr
-        }
     }
     
     func configureTableRow(){

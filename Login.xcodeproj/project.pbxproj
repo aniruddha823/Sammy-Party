@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08819A732095B3EE003BFC6D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08819A722095B3EE003BFC6D /* MapViewController.swift */; };
+		08819A752095B423003BFC6D /* PinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08819A742095B423003BFC6D /* PinAnnotation.swift */; };
 		6A1D41222091B635005591F3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1D41212091B635005591F3 /* SettingsViewController.swift */; };
 		6A1D41242091B789005591F3 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1D41232091B789005591F3 /* AboutUsViewController.swift */; };
 		6A1D41262091B7B5005591F3 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1D41252091B7B5005591F3 /* ContactUsViewController.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08819A722095B3EE003BFC6D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		08819A742095B423003BFC6D /* PinAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinAnnotation.swift; sourceTree = "<group>"; };
 		56986FAB9CD7F475A18A303A /* Pods_Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A1D41212091B635005591F3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		6A1D41232091B789005591F3 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 				6A1D412B2092513C005591F3 /* Images.xcassets */,
 				A33050B32092E5C3006CB635 /* TableViewCell.swift */,
 				A33050B42092E5C3006CB635 /* TableViewCell.xib */,
+				08819A722095B3EE003BFC6D /* MapViewController.swift */,
+				08819A742095B423003BFC6D /* PinAnnotation.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -279,12 +285,14 @@
 				6A1D41222091B635005591F3 /* SettingsViewController.swift in Sources */,
 				6A564C3C208318F200702FC5 /* ViewController.swift in Sources */,
 				6ACD272C208324E80080876F /* Bridge.m in Sources */,
+				08819A752095B423003BFC6D /* PinAnnotation.swift in Sources */,
 				A33050AD20919238006CB635 /* SetPartyViewController.swift in Sources */,
 				B625294A2093050700658C66 /* MapsViewController.swift in Sources */,
 				A33050B52092E5C3006CB635 /* TableViewCell.swift in Sources */,
 				6A564C3A208318F200702FC5 /* AppDelegate.swift in Sources */,
 				6A1D41262091B7B5005591F3 /* ContactUsViewController.swift in Sources */,
 				B65BFDEC2092F6B100639113 /* ChangeProfilePictureViewController.swift in Sources */,
+				08819A732095B3EE003BFC6D /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
