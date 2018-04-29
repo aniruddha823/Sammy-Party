@@ -18,7 +18,7 @@ class SetPartyViewController: UIViewController, UITextFieldDelegate {
     //    var cuisineInput: String = ""
     //
     
-   
+    
     
     @IBOutlet var hide: UIButton!
     @IBOutlet var partyNameTextField: UITextField!
@@ -32,22 +32,23 @@ class SetPartyViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //  locationTextField.isEnabled = false
+        
         
         hide.isHidden = true
         // Do any additional setup after loading the view.
     }
     
-   
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-       //Use picker view to enter a date
-
+    //Use picker view to enter a date
+    
     @IBAction func dateAction(_ sender: UITextField) {
-   
+    
+        
         let datePickerView  : UIDatePicker = UIDatePicker()
         datePickerView.datePickerMode = UIDatePickerMode.dateAndTime
         sender.inputView = datePickerView
@@ -65,7 +66,7 @@ class SetPartyViewController: UIViewController, UITextFieldDelegate {
         //    dateInput = timeFormatter.string(from: sender.date)
     }
     
-   
+    
     //User touch
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -75,7 +76,7 @@ class SetPartyViewController: UIViewController, UITextFieldDelegate {
     
     //Save button functionality
     @IBAction func saveButton(_ sender: Any) {
-
+        
         if(partyNameTextField.text == ""){
             
             let alert = UIAlertController(title: "Alert", message: "Party name can't be blank ", preferredStyle: UIAlertControllerStyle.alert)
@@ -125,4 +126,5 @@ class SetPartyViewController: UIViewController, UITextFieldDelegate {
         performSegue(withIdentifier: "backToPartyView", sender: self)
     }
 }
+
 
