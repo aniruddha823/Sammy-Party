@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class AddPhoneNumberViewController: UIViewController {
 
@@ -24,6 +25,21 @@ class AddPhoneNumberViewController: UIViewController {
     }
     
     @IBAction func savePhoneNumber(_ sender: Any) {
+        let partyDB = Database.database().reference().child("Users")
+        
+        let partyDictionary = ["PhoneNumber": phoneNumberField.text!, ]
+        
+        partyDB.childByAutoId().setValue(partyDictionary){
+            
+            (error, ref) in
+            
+            if(error != nil){
+                print(error!)
+            }
+            else{
+                print("PhoneNumber added")
+                
+            }
         
     }
     
@@ -37,4 +53,5 @@ class AddPhoneNumberViewController: UIViewController {
     }
     */
 
+}
 }
