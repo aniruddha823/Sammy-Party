@@ -1,18 +1,26 @@
 //
-//  AboutUsViewController.swift
+//  EmailAddressViewController.swift
 //  Login
 //
-//  Created by Paramjot Bhatia on 4/26/18.
+//  Created by Paramjot Bhatia on 4/29/18.
 //  Copyright © 2018 CMPE 137. All rights reserved.
 //
 
 import UIKit
 
-class AboutUsViewController: UIViewController {
+class EmailAddressViewController: UIViewController {
 
+    @IBOutlet weak var emailID: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        
+        
+        
+        emailID.text = GIDSignIn.sharedInstance().currentUser.profile.email
+        
+        
         // Do any additional setup after loading the view.
     }
 

@@ -5,7 +5,6 @@
 //  Created by PUNEET TOKHI on 11/12/17.
 //  Copyright © 2017 SammyFood. All rights reserved.
 //
-
 import UIKit
 import Firebase
 
@@ -17,7 +16,7 @@ class SetPartyViewController: UIViewController, UITextFieldDelegate {
     @IBAction func logOut(_ sender: Any) {
         GIDSignIn.sharedInstance().signOut()
     }
-  
+    
     
     
     @IBOutlet var hide: UIButton!
@@ -47,7 +46,7 @@ class SetPartyViewController: UIViewController, UITextFieldDelegate {
     //Use picker view to enter a date
     
     @IBAction func dateAction(_ sender: UITextField) {
-    
+        
         
         let datePickerView  : UIDatePicker = UIDatePicker()
         datePickerView.datePickerMode = UIDatePickerMode.dateAndTime
@@ -101,29 +100,43 @@ class SetPartyViewController: UIViewController, UITextFieldDelegate {
             
         }
             
-    //    else if(((website.text!.contains("N/A"))) || website.text!.contains(""))  {
+            //    else if(((website.text!.contains("N/A"))) || website.text!.contains(""))  {
         else if(website.text!.contains("")) {
             let alert = UIAlertController(title: "Alert", message: "Website name can't be blank", preferredStyle: UIAlertControllerStyle.alert)
             
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-        else if(verifyUrl(urlString: website.text!)) == false{
-            let alert = UIAlertController(title: "Alert", message: "Invalid URL. Please try again", preferredStyle: UIAlertControllerStyle.alert)
-
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-//       else if(((website.text!.contains("N/A")))){
-//            return
-//        }
-//
-////
-//            let alert = UIAlertController(title: "Alert", message: "Invalid URL. Please try again", preferredStyle: UIAlertControllerStyle.alert)
-//
-//            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            /*
+             else if(verifyUrl(urlString: website.text!)) == false{
+             let alert = UIAlertController(title: "Alert", message: "Invalid URL. Please try again", preferredStyle: UIAlertControllerStyle.alert)
+             
+             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+             self.present(alert, animated: true, completion: nil)
+             }
+             
+             else if(((website.text!.contains("N/A")))){
+             
+             let alert = UIAlertController(title: "Alert", message: "Invalid URL. Please try again", preferredStyle: UIAlertControllerStyle.alert)
+             
+             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+             self.present(alert, animated: true, completion: nil)
+             }
+             */
+            
+            
+            //            return
+            //        }
+            //       else if(((website.text!.contains("N/A")))){
+            //            return
+            //        }
+            //
+            ////
+            //            let alert = UIAlertController(title: "Alert", message: "Invalid URL. Please try again", preferredStyle: UIAlertControllerStyle.alert)
+            //
+            //            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             //            self.present(alert, animated: true, completion: nil) }
-        
+            
             
         else{
             
@@ -148,20 +161,22 @@ class SetPartyViewController: UIViewController, UITextFieldDelegate {
         
         performSegue(withIdentifier: "backToPartyView", sender: self)
     }
+    /*
+     
+     func verifyUrl (urlString: String?) -> Bool {
+     if let urlString = urlString {
+     if(urlString.contains("N/A")){
+     return true
+     }
+     else if let url  = NSURL(string: urlString) {
+     
+     return UIApplication.shared.canOpenURL(url as URL)
+     }
+     }
+     return false
+     }
+     */
     
-    func verifyUrl (urlString: String?) -> Bool {
-        if let urlString = urlString {
-            if(urlString.contains("N/A")){
-                return true
-            }
-          else if let url  = NSURL(string: urlString) {
-                
-                return UIApplication.shared.canOpenURL(url as URL)
-            }
-        }
-        return false
-    }
-
 }
 
 
