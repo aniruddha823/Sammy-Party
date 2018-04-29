@@ -12,17 +12,15 @@ import Firebase
 //Class used to create an event
 class SetPartyViewController: UIViewController, UITextFieldDelegate {
     
-    //    var locationInput : String = ""
-    //    var dateInput: String = ""
-    //    var eventInput: String = ""
-    //    var cuisineInput: String = ""
-    //
     
-    @IBAction func signOut(_ sender: Any) {
-        
+    @IBOutlet var website: UITextField!
+    @IBAction func logOut(_ sender: Any) {
         GIDSignIn.sharedInstance().signOut()
     }
+  
     
+    
+    @IBOutlet var hide: UIButton!
     @IBOutlet var partyNameTextField: UITextField!
     
     @IBOutlet var dateAndTimeTextField: UITextField!
@@ -34,20 +32,22 @@ class SetPartyViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //  locationTextField.isEnabled = false
         
         
+        hide.isHidden = true
         // Do any additional setup after loading the view.
     }
     
-   
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     //Use picker view to enter a date
-    @objc @IBAction func dateAction(_ sender: UITextField) {
+    
+    @IBAction func dateAction(_ sender: UITextField) {
+    
         
         let datePickerView  : UIDatePicker = UIDatePicker()
         datePickerView.datePickerMode = UIDatePickerMode.dateAndTime
@@ -66,11 +66,12 @@ class SetPartyViewController: UIViewController, UITextFieldDelegate {
         //    dateInput = timeFormatter.string(from: sender.date)
     }
     
-   
+    
     //User touch
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
     
     
     //Save button functionality
@@ -99,16 +100,38 @@ class SetPartyViewController: UIViewController, UITextFieldDelegate {
             
             
         }
+            
+    //    else if(((website.text!.contains("N/A"))) || website.text!.contains(""))  {
+        else if(website.text!.contains("")) {
+            let alert = UIAlertController(title: "Alert", message: "Website name can't be blank", preferredStyle: UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        else if(verifyUrl(urlString: website.text!)) == false{
+            let alert = UIAlertController(title: "Alert", message: "Invalid URL. Please try again", preferredStyle: UIAlertControllerStyle.alert)
+
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+//       else if(((website.text!.contains("N/A")))){
+//            return
+//        }
+//
+////
+//            let alert = UIAlertController(title: "Alert", message: "Invalid URL. Please try again", preferredStyle: UIAlertControllerStyle.alert)
+//
+//            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            //            self.present(alert, animated: true, completion: nil) }
+        
+            
         else{
-         
             
-            let eventsDB = Database.database().reference().child("Parties")
+            let partyDB = Database.database().reference().child("Party")
             
-            let partyDictionary = ["Sender": Auth.auth().currentUser?.displayName!, "PartyName": partyNameTextField.text!, "PartyDate": dateAndTimeTextField.text!, "PartyLocation": locationTextField.text!, "PartyOrganizer": organizerTextField.text!]
+            let partyDictionary = ["Sender": Auth.auth().currentUser?.displayName, "PartyName": partyNameTextField.text!, "PartyDate": dateAndTimeTextField.text!, "PartyLocation": locationTextField.text!, "PartyOrganizer": organizerTextField.text!,"Website": website.text!]
             
-            //         eventsDB.updateChildValues(eventsDictionary)
-            
-            eventsDB.childByAutoId().setValue(partyDictionary){
+            partyDB.childByAutoId().setValue(partyDictionary){
                 
                 (error, ref) in
                 
@@ -123,7 +146,22 @@ class SetPartyViewController: UIViewController, UITextFieldDelegate {
         }
         
         
-        performSegue(withIdentifier: "backToEventFeed", sender: self)
+        performSegue(withIdentifier: "backToPartyView", sender: self)
     }
+    
+    func verifyUrl (urlString: String?) -> Bool {
+        if let urlString = urlString {
+            if(urlString.contains("N/A")){
+                return true
+            }
+          else if let url  = NSURL(string: urlString) {
+                
+                return UIApplication.shared.canOpenURL(url as URL)
+            }
+        }
+        return false
+    }
+
 }
+
 

@@ -8,8 +8,14 @@
 
 import Foundation
 
-struct Party{
-    let type:String
-    let belong:[String]
+class Party{
+    
+    var partyName:String = ""
+    var partyLocation: String = ""
+    var partyDate: String = ""
+    var partyOrganizer: String = ""
+    var userName: String = ""
+    var website: String = ""
     
 }
+
