@@ -9,7 +9,7 @@
 import UIKit
 
 class SettingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+    //Array to store segue identifiers and the table view cell names
     var tableArray = ["About Us", "User Details", "Add Phone", "Contact Us", "Change Profile Pic"]
     var segueIdentifiers = ["AboutUsSegue", "UserDetailsSegue", "AddPhoneSegue", "ContactUsSegue", "ChangeProfilePicSegue"]
 
@@ -24,10 +24,12 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
+    //function to display number of rows in table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableArray.count
     }
     
+    //change the text of table view cell from array declared above
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellSettings")! as UITableViewCell
         cell.textLabel?.text = tableArray[indexPath.row]
@@ -35,6 +37,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     
+    //this is what happens each time a user clicks on a table view cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: segueIdentifiers[indexPath.row], sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
