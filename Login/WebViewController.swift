@@ -15,7 +15,7 @@ class WebViewController: UIViewController {
     var str: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //Error checking to see if the format of the url typed in is acceptable
         if(!str.contains("http") || !str.contains("www") || !str.contains("https"))
         {
             if(str.contains("N/A")){
@@ -38,7 +38,7 @@ class WebViewController: UIViewController {
             
         }
         
-        
+        //Loading the webpage request
         //  let url = URL(string: "https://www.\(str)")
         let url = URL(string: "\(str)")
         print(url!)

@@ -6,15 +6,18 @@
 //  Copyright © 2018 CMPE 137. All rights reserved.
 //
 
+//import statements and Firebase for sign in
 import UIKit
 import Firebase
 
+//Google Sign in
 class ViewController: UIViewController, GIDSignInUIDelegate {
     
     
     @IBOutlet var nextButton: UIButton!
     
     
+    // Google Sign in
 //    @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var button: UIButton!
     override func viewDidLoad() {
@@ -41,7 +44,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().signIn()
         
     }
-    
+    //if user signs in sucessfully, this is what happens
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         // ...
         if error != nil {
