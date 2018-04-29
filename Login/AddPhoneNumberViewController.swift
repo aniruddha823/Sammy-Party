@@ -10,6 +10,8 @@ import UIKit
 
 class AddPhoneNumberViewController: UIViewController {
 
+    @IBOutlet weak var phoneNumberField: UITextField!
+    @IBOutlet weak var phoneNumberButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +23,10 @@ class AddPhoneNumberViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func savePhoneNumber(_ sender: Any) {
+        
+    }
+    
     /*
     // MARK: - Navigation
 
