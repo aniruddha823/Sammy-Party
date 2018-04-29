@@ -10,8 +10,8 @@ import UIKit
 
 class SettingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var tableArray = ["About Us", "Change User Details", "Add Phone", "Contact Us", "Change Profile Pic"]
-    var segueIdentifiers = ["AboutUsSegue", "ChangeUserDetailsSegue", "AddPhoneSegue", "ContactUsSegue", "ChangeProfilePicSegue"]
+    var tableArray = ["About Us", "User Details", "Add Phone", "Contact Us", "Change Profile Pic"]
+    var segueIdentifiers = ["AboutUsSegue", "UserDetailsSegue", "AddPhoneSegue", "ContactUsSegue", "ChangeProfilePicSegue"]
 
     override func viewDidLoad() {
         super.viewDidLoad()

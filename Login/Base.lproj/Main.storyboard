@@ -345,7 +345,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="ORG-ts-zre"/>
                     <connections>
-                        <segue destination="vgm-qi-0Kq" kind="show" identifier="ChangeUserDetailsSegue" id="8N5-b7-MBf"/>
+                        <segue destination="vgm-qi-0Kq" kind="show" identifier="UserDetailsSegue" id="8N5-b7-MBf"/>
                         <segue destination="Rmb-wQ-dgi" kind="show" identifier="ContactUsSegue" id="GDx-ix-jiD"/>
                         <segue destination="QZQ-3t-f1l" kind="show" identifier="AddPhoneSegue" id="i4I-ov-oGe"/>
                         <segue destination="Oww-wv-uvj" kind="show" identifier="ChangeProfilePicSegue" id="iS8-SP-4tH"/>
@@ -395,20 +395,34 @@
             </objects>
             <point key="canvasLocation" x="1925.5999999999999" y="1258.920539730135"/>
         </scene>
-        <!--Email Address View Controller-->
+        <!--About Us Web View View Controller-->
         <scene sceneID="T0X-HD-hxO">
             <objects>
-                <viewController id="7gg-HA-8EO" customClass="EmailAddressViewController" customModule="Login" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7gg-HA-8EO" customClass="AboutUsWebViewViewController" customModule="Login" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qwc-OK-btV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jEQ-Lq-ebz">
+                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="kVF-U5-I35"/>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="jEQ-Lq-ebz" id="ufV-d5-pmf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tFg-1E-Wsf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2767" y="1259"/>
+            <point key="canvasLocation" x="2867" y="1259"/>
         </scene>
         <!--Email Address View Controller-->
         <scene sceneID="Z02-dL-Ddl">
@@ -446,7 +460,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qsH-5f-UTS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3586.9565217391305" y="1258.6956521739132"/>
+            <point key="canvasLocation" x="3694" y="1259"/>
         </scene>
         <!--Contact Us-->
         <scene sceneID="MHv-rV-abb">
