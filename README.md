@@ -1,10 +1,13 @@
 # Sammy-Party
 
+Team Members: 
+Paramjot Bhatia 009719723
 Dominic Varakukala 009892922
 
 
+
 Build Instructions:
-Simply click the run button on xcode to acess the application. To log into the application. The user must enter in their SJSU, email when the gmail login sign in appears. Then you will be lead to canvas to sign in. 
+Simply click the run button on XCode to acess the application. To log into the application. The user must enter in their SJSU, email when the Gmail login sign in appears. Then you will be lead to canvas to sign in. Simulate the app in iPhone 6 6S, 7, or 8 devices only in Portrait mode. Note: You will need an active internet connection to view the Websites. The phone and mail applications will not open in Simulator. 
 
 Sources: 
 
