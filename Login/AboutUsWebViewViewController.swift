@@ -19,6 +19,7 @@ class AboutUsWebViewViewController: UIViewController {
         super.viewDidLoad()
         let url = URL(string: "https://github.com/aniruddha823/Sammy-Party")
         let request = URLRequest(url: url!)
+        // shows user the github page in the browser
         webView.load(request)
 
         // Do any additional setup after loading the view.
