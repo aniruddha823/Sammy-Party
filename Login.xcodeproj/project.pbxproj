@@ -25,7 +25,6 @@
 		A33050B52092E5C3006CB635 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33050B32092E5C3006CB635 /* TableViewCell.swift */; };
 		A33050B62092E5C3006CB635 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A33050B42092E5C3006CB635 /* TableViewCell.xib */; };
 		A33FAC442083DC97004E0A40 /* PartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33FAC432083DC97004E0A40 /* PartyViewController.swift */; };
-		B625294A2093050700658C66 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62529492093050700658C66 /* MapsViewController.swift */; };
 		B62FD0F72085DC4F001D7085 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62FD0F62085DC4F001D7085 /* Party.swift */; };
 		B653B0D620962BDC0084D5E8 /* AddPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B653B0D520962BDC0084D5E8 /* AddPhoneNumberViewController.swift */; };
 		B65BFDEC2092F6B100639113 /* ChangeProfilePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65BFDEB2092F6B100639113 /* ChangeProfilePictureViewController.swift */; };
@@ -57,7 +56,6 @@
 		A33050B42092E5C3006CB635 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		A33FAC432083DC97004E0A40 /* PartyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyViewController.swift; sourceTree = "<group>"; };
 		B5EECAA332360ECD9537CBCD /* Pods-Login.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login.release.xcconfig"; path = "Pods/Target Support Files/Pods-Login/Pods-Login.release.xcconfig"; sourceTree = "<group>"; };
-		B62529492093050700658C66 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		B62FD0F62085DC4F001D7085 /* Party.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
 		B653B0D520962BDC0084D5E8 /* AddPhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhoneNumberViewController.swift; sourceTree = "<group>"; };
 		B65BFDEB2092F6B100639113 /* ChangeProfilePictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeProfilePictureViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 				6ACD272B208324E80080876F /* Bridge.m */,
 				6A564C3D208318F200702FC5 /* Main.storyboard */,
 				6A737A122095C35D00D1D0C8 /* EmailAddressViewController.swift */,
-				B62529492093050700658C66 /* MapsViewController.swift */,
 				6A1D412720924877005591F3 /* WebViewController.swift */,
 				6A564C42208318F200702FC5 /* LaunchScreen.storyboard */,
 				6A564C45208318F200702FC5 /* Info.plist */,
@@ -294,7 +291,6 @@
 				08819A752095B423003BFC6D /* PinAnnotation.swift in Sources */,
 				6A737A172095D31800D1D0C8 /* AboutUsWebViewViewController.swift in Sources */,
 				A33050AD20919238006CB635 /* SetPartyViewController.swift in Sources */,
-				B625294A2093050700658C66 /* MapsViewController.swift in Sources */,
 				A33050B52092E5C3006CB635 /* TableViewCell.swift in Sources */,
 				6A564C3A208318F200702FC5 /* AppDelegate.swift in Sources */,
 				6A1D41262091B7B5005591F3 /* ContactUsViewController.swift in Sources */,
