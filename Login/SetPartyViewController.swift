@@ -107,7 +107,7 @@ class SetPartyViewController: UIViewController, UITextFieldDelegate {
         }
             
         // checks if website name is blank
-        else if(website.text!.contains("")) {
+        else if(website.text == "") {
             
             // shows an alert message to the user
             let alert = UIAlertController(title: "Alert", message: "Website name can't be blank", preferredStyle: UIAlertControllerStyle.alert)
