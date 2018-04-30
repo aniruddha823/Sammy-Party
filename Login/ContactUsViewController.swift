@@ -21,8 +21,11 @@ class ContactUsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //If the user presses on the contact via email
+    
     @IBAction func contactViewEmailPressed(_ sender: Any) {
         
+        //Opens mail app in iOS device (not simulator)
 //        UIApplication.shared.open(URL(string: "mailtoCMPE137PartyApp@gmail.com")! as URL, options: [:], completionHandler: nil)
 //        print("hrl")
 
@@ -33,8 +36,9 @@ class ContactUsViewController: UIViewController {
     }
     
    
+    //contact via number pressed
     @IBAction func contactViaNumberPressed(_ sender: Any) {
-        
+        //opens ios Phone app, not in simulator
         if let url = URL(string: "tel://\(4087210921)"), UIApplication.shared.canOpenURL(url) {
             if #available(iOS 10, *) {
                 UIApplication.shared.open(url)
