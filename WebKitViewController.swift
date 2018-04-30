@@ -14,10 +14,10 @@ class WebKitViewController: UIViewController {
     
  
     @IBOutlet weak var wView: WebKitViewController!
-    
+    // Displays our GitHub repo
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = URL(string: "http://info.sjsu.edu/web-dbgen/catalog/courses/CMPE137.html")
+        let url = URL(string: "https://github.com/aniruddha823/Sammy-Party")
         let request = URLRequest(url: url!)
         wView.load(request)
     }
