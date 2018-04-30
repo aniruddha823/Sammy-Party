@@ -1,9 +1,10 @@
 # Sammy-Party
 
 Team Members: 
-Paramjot Bhatia 009719723
-Dominic Varakukala 009892922
-Puneet Tokhi 010904400
+Paramjot Bhatia 009719723 - param0859@gmail.com
+Aniruddha Prabhu - 009895899 - aniruddha823@gmail.com
+Puneet Tokhi 010904400 - puneettokhi25@gmail.com
+Dominic Varakukala 009892922 - dominic.varakukala@gmail.com
 
 
 
