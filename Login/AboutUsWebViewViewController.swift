@@ -14,7 +14,7 @@ class AboutUsWebViewViewController: UIViewController {
 
     @IBOutlet weak var webView: WKWebView!
     
-    
+    // Displays our GitHub repo
     override func viewDidLoad() {
         super.viewDidLoad()
         let url = URL(string: "https://github.com/aniruddha823/Sammy-Party")

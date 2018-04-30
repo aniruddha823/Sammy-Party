@@ -10,10 +10,10 @@ import UIKit
 
 class ChangeProfilePictureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, GIDSignInDelegate {
    
-    
-    //Upload Button
+    // Upload button
     @IBOutlet weak var uploadImageButton: UIButton!
-    //UIimage view of a profile picture
+    
+    // UIimage view of a profile picture
     @IBOutlet weak var profilePic: UIImageView!
     
     override func viewDidLoad() {
@@ -21,17 +21,18 @@ class ChangeProfilePictureViewController: UIViewController, UIImagePickerControl
         
         GIDSignIn.sharedInstance().delegate = self
         
-        //URL of potential image
+        // URL of potential image
         let profilePicURL = GIDSignIn.sharedInstance().currentUser.profile.imageURL(withDimension: 175)
-        //IF image exists
+        
+        // if image exists...
         if(profilePicURL != nil)
         {
-            //set that image as the profile pic
+            // set the image as the profile picture
             self.profilePic.image = UIImage(data: NSData(contentsOf: profilePicURL!)! as Data)
         }
             
         else{
-            //else use defualt picture
+            // else use the default picture
             print("No image")
         }
     }
@@ -53,6 +54,7 @@ class ChangeProfilePictureViewController: UIViewController, UIImagePickerControl
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         profilePic.layer.cornerRadius = profilePic.frame.size.width/2
