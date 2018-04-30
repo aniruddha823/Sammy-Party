@@ -17,7 +17,7 @@ class EmailAddressViewController: UIViewController {
         
         
         
-        
+        //Fetches email address from Database
         emailID.text = GIDSignIn.sharedInstance().currentUser.profile.email
         
         
