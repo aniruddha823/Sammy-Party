@@ -15,22 +15,25 @@ class WebViewController: UIViewController {
     var str: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //Checking to see if the url does not contain http, www, or https
         if(!str.contains("http") || !str.contains("www") || !str.contains("https"))
         {
+            //if the url contains "N/A"
             if(str.contains("N/A")){
                 let alert = UIAlertController(title: "Alert", message: "This organizer has not entered a website name" , preferredStyle: UIAlertControllerStyle.alert)
                 
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
+            //if the url contains http, www, or https
             else if(str.contains("http") || str.contains("www") || str.contains("https")){
                 let alert = UIAlertController(title: "Alert", message: "Invalid URL Format: \(str)" , preferredStyle: UIAlertControllerStyle.alert)
                 
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
-                
+            
+            //else append prefix    
             else
             {
                 str = "https://www." + str
